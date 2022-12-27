@@ -4,7 +4,13 @@ class StudentController {
     res.redirect('/student');
   };
 
-  static getAllDoc = (req, res) => {
+  static getAllDoc = async (req, res) => {
+    try {
+      const result = await StudentModel.find();
+      res.render('index', { data: result });
+    } catch (error) {
+      console.log(error);
+    }
     res.render('index');
   };
 

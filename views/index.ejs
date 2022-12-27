@@ -39,18 +39,19 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
-
         <tbody>
+          <% var i=1 %> <% data.forEach((item)=>{ %>
           <tr>
-            <td>1</td>
-            <td>Senkeh</td>
-            <td>37</td>
-            <td>9999.00</td>
+            <td><%= i++%></td>
+            <td><%= item.name %></td>
+            <td><%= item.age %></td>
+            <td><%= item.fees %></td>
             <td>
               <i class="bi bi-pen"></i>
               <i class="bi bi-trash3"></i>
             </td>
           </tr>
+          <% })%>
         </tbody>
       </table>
     </div>
