@@ -1,7 +1,21 @@
 import StudentModel from '../models/StudentModelSchema.js';
 class StudentController {
-  static createDoc = (req, res) => {
-    res.redirect('/student');
+  static createDoc = async (req, res) => {
+    console.log(req.body);
+    try {
+      const { name, age, fees } = req.body;
+      const doc = new StudentModel({
+        name: name,
+        age: age,
+        fees: fees,
+      });
+      // saving docu
+      const result = await doc.save();
+      console.log(result);
+      res.redirect('/student');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   static getAllDoc = async (req, res) => {
