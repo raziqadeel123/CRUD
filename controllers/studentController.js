@@ -28,11 +28,30 @@ class StudentController {
     res.render('index');
   };
 
-  static editDoc = (req, res) => {
-    res.render('edit');
+  static editDoc = async (req, res) => {
+    // console.log(req.params.id);
+    try {
+      const result = await StudentModel.findById(req.params.id);
+      res.render('edit', { data: result });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  static updateDocById = (req, res) => {
+  static updateDocById = async (req, res) => {
+    console.log(req.params.id);
+    console.log(req.body);
+
+    try {
+      const result = await StudentModel.findByIdAndUpdate(
+        req.params.id,
+        req.body
+      );
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+
     res.redirect('/student');
   };
 
