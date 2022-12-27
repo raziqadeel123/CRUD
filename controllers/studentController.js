@@ -1,3 +1,4 @@
+import StudentModel from '../models/StudentModelSchema.js';
 class StudentController {
   static createDoc = (req, res) => {
     res.redirect('/student');
