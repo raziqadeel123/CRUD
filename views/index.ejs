@@ -57,7 +57,15 @@
                 </button>
               </form>
 
-              <i class="bi bi-trash3"></i>
+              <form
+                action="/student/delete/<%= item._id%>"
+                method="post"
+                class="d-inline"
+              >
+                <button type="submit" class="btn">
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </form>
             </td>
           </tr>
           <% })%>
